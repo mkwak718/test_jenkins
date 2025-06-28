@@ -2,19 +2,24 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/mkwak718/test_jenkins'
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building the app'
+                sh 'echo "Building the app'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing the app'
+                sh 'echo "Running tests"'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying the app'
+                sh 'echo "Deploying"'
             }
         }
     }
