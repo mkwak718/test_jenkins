@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'windows​' }
+    agent { label 'windows-node​' }
 
     stages {
         stage('Checkout Code') {
