@@ -4,23 +4,32 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/mkwak718/test_jenkins'
+                git branch: 'main', url: 'https://github.com/mkwak718/test_jenkins'
             }
         }
         stage('Build') {
             steps {
-                sh 'echo "Building the app'
+                bat 'echo "Building the app'
             }
         }
         stage('Test') {
             steps {
-                sh 'echo "Running tests"'
+                bat 'echo "Running tests"'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo "Deploying"'
+                bat 'echo "Deploying"'
             }
         }
+    }
+}
+
+post{
+    success {
+        bat 'echo "build successful"'
+    }
+    failure{
+        bat 'echo "build failed"'
     }
 }
